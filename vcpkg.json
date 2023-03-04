@@ -1,0 +1,10 @@
+{
+	"name": "openai-cpp",
+	"version-string": "0.0.1-alpha",
+	"homepage": "https://github.com/anirul/openai-cpp/",
+	"description": "OpenAI C++17 library.",
+	"dependencies": [
+		"cpr",
+		"nlohmann-json"
+	]
+}
