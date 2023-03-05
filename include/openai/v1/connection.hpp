@@ -22,7 +22,19 @@
  * SOFTWARE.
  */
 
-#include <openai/v1/chat.hpp>
-#include <openai/v1/connection.hpp>
-#include <openai/v1/engine.hpp>
-#include <openai/v1/message.hpp>
+namespace openai::v1 {
+
+#include <string>
+#include <memory>
+
+class Connection {
+ public:
+  Connection(const std::string& openai_api_key)
+      : openai_api_key_(openai_api_key) {}
+  std::string GetApiKey() const;
+
+ private:
+  std::string openai_api_key_;
+};
+
+}  // End namespace openai::v1.

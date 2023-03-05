@@ -22,7 +22,18 @@
  * SOFTWARE.
  */
 
-#include <openai/v1/chat.hpp>
-#include <openai/v1/connection.hpp>
-#include <openai/v1/engine.hpp>
-#include <openai/v1/message.hpp>
+#include <vector>
+#include <string>
+
+namespace openai::v1 {
+
+enum class MessageType {
+  SYSTEM,
+  USER,
+  ASSISTANT,
+};
+
+using Message = std::pair<MessageType, std::string>;
+using Messages = std::vector<Message>;
+
+} // End namepsace openai::v1.

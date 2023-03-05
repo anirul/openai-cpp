@@ -22,7 +22,22 @@
  * SOFTWARE.
  */
 
-#include <openai/v1/chat.hpp>
+#include <vector>
+#include <string>
 #include <openai/v1/connection.hpp>
-#include <openai/v1/engine.hpp>
-#include <openai/v1/message.hpp>
+
+namespace openai::v1 {
+
+class Engine {
+ public:
+  Engine(const Connection& connection);
+  std::vector<std::string> list();
+  bool Select(const std::string& engine_name);
+  const std::string& GetEngineSelected() const { return engine_name_; }
+
+ private:
+  const Connection& connection_;
+  const std::string& engine_name_;
+};
+
+}  // End namespace openai::v1.

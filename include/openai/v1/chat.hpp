@@ -22,7 +22,27 @@
  * SOFTWARE.
  */
 
-#include <openai/v1/chat.hpp>
 #include <openai/v1/connection.hpp>
 #include <openai/v1/engine.hpp>
 #include <openai/v1/message.hpp>
+
+namespace openai::v1 {
+
+class Chat {
+ public:
+  // Constructor it take a connection and an engine.
+  Chat(const Connection& connection, const Engine& engine)
+      : connection_(connection), engine_(engine) {}
+  void SetMessages(const Messages& message) { messages_ = message; }
+  Message Query();
+  void SetTemperature(float temp) { temp_ = temp; }
+
+ private:
+  const Connection& connection_;
+  const Engine& engine_;
+  Messages messages_;
+  float temp_;
+  const Connection& connection_;
+};
+
+}  // End namespace openai::v1.
